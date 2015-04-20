@@ -28,6 +28,7 @@ void ParallaxLayer::Initialize(Graphics *graphics)
   _parallaxSurface = IMG_Load(_textureName.c_str());
   std::string formatName = SDL_GetPixelFormatName(_parallaxSurface->format->format);
 
+  printf("surfaceWidth:%d", _parallaxSurface->w);
   float unitWidth = _parallaxSurface->w / PIXELS_PER_UNIT;
   float unitHeight = _parallaxSurface->h / PIXELS_PER_UNIT;
 

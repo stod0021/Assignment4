@@ -16,7 +16,16 @@
     <ClCompile Include="src\main.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="src\Cube.cpp">
+    <ClCompile Include="src\Enemy.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Player.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Pyramid.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Laser.cpp">
       <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>
@@ -24,8 +33,36 @@
     <ClInclude Include="src\Game.h">
       <Filter>Source</Filter>
     </ClInclude>
-    <ClInclude Include="src\Cube.h">
+    <ClInclude Include="src\Enemy.h">
       <Filter>Source</Filter>
     </ClInclude>
+    <ClInclude Include="src\Player.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Pyramid.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Laser.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\asteroid.png">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="res\fireball.png">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="res\shot.png">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="res\space.png">
+      <Filter>Resources</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="res\sc2LostVikings.mp3">
+      <Filter>Resources</Filter>
+    </Media>
   </ItemGroup>
 </Project>
