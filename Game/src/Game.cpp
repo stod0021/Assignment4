@@ -83,13 +83,13 @@ void Game::InitializeImpl()
 
  /* Vector3 scaleImage(2.0f, 2.0f, 0.0f);
   Vector3 positionBackground(0.0f, 0.0f ,0.0f);*/
-  Vector2 paralaxSpeed(10.0f, 5.0f);
-
+  Vector2 paralaxSpeed(0.0f, 0.5f);
   _backgroundLayer = new ParallaxLayer(spaceBackground, paralaxSpeed);
+  for (int i = 0; i < 10; i++){
+	  _backgroundParallaxSystem->PushLayer(_backgroundLayer);
+  }
  // _backgroundLayer->GetTransform().position = positionBackground;
   //_backgroundLayer->GetTransform().scale = scaleImage;
-  _backgroundParallaxSystem->PushLayer(_backgroundLayer);
-
   //Generating Player and Enemy
   _player = new Player();
 //  _enemy = new Enemy();
@@ -133,8 +133,35 @@ void Game::UpdateImpl(float dt)
 {
 	InputManager *im = InputManager::GetInstance();
 	im->Update(dt);
-	printf("x%d,y%d\n", _backgroundLayer->GetTransform().position.x, _backgroundLayer->GetTransform().position.y);
-
+	//printf("x%f,y%f\n", _backgroundLayer->GetTransform().position.x, _backgroundLayer->GetTransform().position.y);
+	_backgroundParallaxSystem->LayerCount();
+	
+		if (_backgroundLayer[0].GetTransform().position.y < -4 )
+		{
+			_backgroundLayer[0].GetTransform().position.y =10;
+		}
+		if (_backgroundLayer[1].GetTransform().position.y < -6)
+		{
+			_backgroundLayer[1].GetTransform().position.y = 8;
+		}
+		if (_backgroundLayer[2].GetTransform().position.y < -7)
+		{
+			_backgroundLayer[2].GetTransform().position.y = 7;
+		}
+		if (_backgroundLayer[4].GetTransform().position.y < -8)
+		{
+			_backgroundLayer[4].GetTransform().position.y = 6;
+		}
+		if (_backgroundLayer[5].GetTransform().position.y < -9)
+		{
+			_backgroundLayer[5].GetTransform().position.y = 15;
+		}
+		if (_backgroundLayer[6].GetTransform().position.y < -10)
+		{
+			_backgroundLayer[6].GetTransform().position.y = 5;
+		}
+	
+	
   //if (_player1.GetTankIsDead() == false){
 
 	 // // Check for user input.
@@ -166,14 +193,13 @@ void Game::UpdateImpl(float dt)
 	  }
 
 	  if (_player->GetPlayerIsDead() == false){
-		  if (im->IsKeyDown(SDLK_KP_0) == true)
+		  if (im->IsKeyDown(SDLK_SPACE) == true)
 		  {
 		//	  _player->L
 		  }
 	  }
   //}
-	//_backgroundLayer->
-  for (auto itr = _objects.begin(); itr != _objects.end(); itr++)
+	  for (auto itr = _objects.begin(); itr != _objects.end(); itr++)
   {
     (*itr)->Update(dt);
   }

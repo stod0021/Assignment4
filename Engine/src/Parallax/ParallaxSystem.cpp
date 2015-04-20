@@ -18,8 +18,8 @@ void ParallaxSystem::Update(Vector2 difference, float dt)
   for (int layerIndex = 0; layerIndex < LayerCount(); layerIndex++)
   {
     ParallaxLayer *currentLayer = _parallaxLayers[layerIndex];
-    currentLayer->GetTransform().position.x += difference.x * currentLayer->GetParallaxSpeed().x * dt;
-    currentLayer->GetTransform().position.y += difference.y * currentLayer->GetParallaxSpeed().y * dt;
+    currentLayer->GetTransform().position.x += /*difference.x **/ currentLayer->GetParallaxSpeed().x * dt;
+    currentLayer->GetTransform().position.y -= /*difference.y **/ currentLayer->GetParallaxSpeed().y * dt;
     currentLayer->Update(dt);
   }
 }
@@ -72,5 +72,7 @@ ParallaxLayer* ParallaxSystem::RemoveLayerAtIndex(int index)
 
 int ParallaxSystem::LayerCount()
 {
+	printf("%d\n", _parallaxLayers.size());
+
   return _parallaxLayers.size();
 }
