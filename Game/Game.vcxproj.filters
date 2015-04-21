@@ -64,5 +64,11 @@
     <Media Include="res\sc2LostVikings.mp3">
       <Filter>Resources</Filter>
     </Media>
+    <Media Include="res\SoundsCrate-SciFi-Explosion1.wav">
+      <Filter>Resources</Filter>
+    </Media>
+    <Media Include="res\SoundsCrate-SciFi-Laser2.wav">
+      <Filter>Resources</Filter>
+    </Media>
   </ItemGroup>
 </Project>

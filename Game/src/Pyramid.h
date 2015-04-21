@@ -20,16 +20,17 @@ public:
   void Initialize(Graphics *graphics);
   void Update(float dt);
   void Draw(Graphics *graphics, Matrix4x4 relativeTo, float dt);
+  void SetVertex(int index, float x, float y, float z, float r, float g, float b, float a);
 
 protected:
 
-  Vector3 *vertices;
-  Vector4 *colours;
+  Vector3 *_vertices;
+  Vector4 *_colours;
 
-  int size;
-  int offset;
+  int _size;
+  int _offset;
 
-  unsigned int* indices;
+  unsigned int*_indices;
 
-  void SetVertex(int index, float x, float y, float z, float r, float g, float b, float a);
+ 
 };

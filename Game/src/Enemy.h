@@ -7,6 +7,7 @@
 */
 #pragma once 
 #include <GameObject.h>
+#include "Laser.h"
 
 class Pyramid;
 
@@ -34,8 +35,19 @@ public:
 	*/
 	void Draw(Graphics *graphics, Matrix4x4 relativeTo, float dt);
 
+
+	bool isAlive;
+	float spawnTimer;
+	bool fired;
+	float moveTimer;
+	Laser *_laser;
+
+	Vector3 move;
+
 protected:
+	
 	Pyramid *_enemyPyramid;
 	float _approachProximity; // how close before we stop.
 	float _approachSpeed; // units / second
+
 };

@@ -27,11 +27,11 @@ Pyramid::Pyramid(Vector3 position)
 
 void Pyramid::Initialize(Graphics *graphics)
 {
-  size = 0;
+  _size = 0;
 
   //vertices = new Vertex[8]();
-  vertices = new Vector3[5]();
-  colours = new Vector4[5]();
+  _vertices = new Vector3[5]();
+  _colours = new Vector4[5]();
 
   SetVertex(0, /*pos*/-0.5f, 0.5f, 0.5f,  /*color*/ 1.0f, 0.0f, 0.0f, 1.0f);
   SetVertex(1, /*pos*/0.5f, 0.5f, 0.5f,   /*color*/ 1.0f, 1.0f, 0.0f, 1.0f);
@@ -39,19 +39,19 @@ void Pyramid::Initialize(Graphics *graphics)
   SetVertex(3, /*pos*/0.5f, -0.5f, 0.5f,  /*color*/ 0.0f, 1.0f, 0.0f, 1.0f);
   SetVertex(4, /*pos*/-0.5f, 0.5f, -0.5f, /*color*/ 0.0f, 0.0f, 1.0f, 1.0f);
 
-  indices = new unsigned int[6];
+  _indices = new unsigned int[6];
 
   glFrontFace(GL_CW);
   glCullFace(GL_BACK);
 
   // front
-  indices[0] = 0;
-  indices[1] = 1;
-  indices[2] = 2;
+  _indices[0] = 0;
+  _indices[1] = 1;
+  _indices[2] = 2;
 
-  indices[3] = 3;
-  indices[4] = 4;
-  indices[5] = 5;
+  _indices[3] = 3;
+  _indices[4] = 4;
+  _indices[5] = 5;
 
   //indices[6] = 1;
   //indices[7] = 4;
@@ -82,15 +82,15 @@ void Pyramid::Draw(Graphics *graphics, Matrix4x4 relativeTo, float dt)
 
   glScalef(_transform.scale.x, _transform.scale.y, _transform.scale.z);
 
-  glVertexPointer(3, GL_FLOAT, 0, vertices);
+  glVertexPointer(3, GL_FLOAT, 0, _vertices);
   //glVertexPointer(3, GL_FLOAT, sizeof(Vertex), vertices);
 
-  glColorPointer(4, GL_FLOAT, 0, colours);
+  glColorPointer(4, GL_FLOAT, 0, _colours);
   //glColorPointer(4, GL_FLOAT, sizeof(Vertex), vertices + sizeof(Vector3));
 
-  int indexCount = sizeof(indices) / sizeof(unsigned int);
+  int indexCount = sizeof(_indices) / sizeof(unsigned int);
   indexCount = 30;
-  glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, indices);
+  glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, _indices);
 
   glPopMatrix();
 
@@ -109,10 +109,10 @@ void Pyramid::SetVertex(int index, float x, float y, float z, float r, float g, 
   vertices[index].color.z = b;
   vertices[index].color.w = a;*/
 
-  vertices[index] = Vector3(x, y, z);
+  _vertices[index] = Vector3(x, y, z);
 
-  colours[index].x = r;
-  colours[index].y = g;
-  colours[index].z = b;
-  colours[index].w = a;
+  _colours[index].x = r;
+  _colours[index].y = g;
+  _colours[index].z = b;
+  _colours[index].w = a;
 }

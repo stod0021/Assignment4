@@ -103,6 +103,8 @@
   </ItemGroup>
   <ItemGroup>
     <Media Include="res\sc2LostVikings.mp3" />
+    <Media Include="res\SoundsCrate-SciFi-Explosion1.wav" />
+    <Media Include="res\SoundsCrate-SciFi-Laser2.wav" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -82,10 +82,15 @@ public:
 	*/
 	void SetPlayerDeadTime(float time);
 
-protected:
+	//bool fired = false;
+	Laser *laser;
 	float _playerTimeDead;
 	float _playerSpeed;
-	bool _playerIsDead = false;
+	bool _playerAlive = true;
+	bool _changed = false;
+
+protected:
+
 	Vector2 _playerDirectionVector;
 
 	Pyramid *_playerPyramid;

@@ -70,8 +70,14 @@ protected:
   Camera *_parallaxCamera;
 
   ParallaxSystem *_backgroundParallaxSystem;
+  ParallaxSystem *_backgroundParallaxSystemClone;
+  ParallaxSystem *_backgroundParallaxSystemClone2;
   ParallaxLayer *_backgroundLayer;
+  ParallaxLayer *_backgroundLayerClone;
+  ParallaxLayer *_backgroundLayerClone2;
 
+
+protected:
   //The sound effects that will be used
   Mix_Chunk *_explosion;
   Mix_Chunk *_fireLaser;
@@ -79,4 +85,10 @@ protected:
 
   Player *_player;
   Enemy *_enemy;
+
+  int _score;
+  int _lives;
+  char _buffer[100];
+  char _playAgain;
+  bool _again = false;
 };
